@@ -9,3 +9,5 @@ const fetchRestaurants = () => {
     })
     .catch((e) => console.error(e));
 };
+
+export { fetchRestaurants };
