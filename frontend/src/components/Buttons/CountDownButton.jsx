@@ -1,7 +1,11 @@
 import { RoundButton } from "../shared_style";
 
 const CountDownButton = ({ onClick, isDisabled }) => {
-  return <RoundButton>-</RoundButton>;
+  return (
+    <RoundButton onClick={onClick} disabled={isDisabled}>
+      -
+    </RoundButton>
+  );
 };
 
 export default CountDownButton;
