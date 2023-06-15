@@ -68,8 +68,27 @@ const Foods = () => {
     setState({
       ...state,
       isOpenOrderDialog: false,
+      selectedFood: null,
+      selectedFoodCount: 1,
     });
   };
+
+  const onClickCountUp = () => {
+    console.log("カウントアップボタンが押された！");
+    setState({
+      ...state,
+      selectedFoodCount: state.selectedFoodCount + 1,
+    });
+  };
+
+  const onClickCountDown = () => {
+    setState({
+      ...state,
+      selectedFoodCount: state.selectedFoodCount - 1,
+    });
+  };
+
+  const submitOrder = (food) => {};
 
   useEffect(() => {
     dispatch({ type: foodsActionTypes.FETCHING });
@@ -123,6 +142,10 @@ const Foods = () => {
           food={state.selectedFood}
           isOpen={state.isOpenOrderDialog}
           onCloseDialog={onCloseDialog}
+          countNumber={state.selectedFoodCount}
+          onClickCountUp={onClickCountUp}
+          onClickCountDown={onClickCountDown}
+          onClickOrder={() => submitOrder()}
         />
       )}
     </>
